@@ -49,7 +49,7 @@ public class Graficos extends JFrame implements KeyListener{
 			{
 				super.paintComponent(g);
 				Graphics2D g2d= (Graphics2D)g;	
-				g2d.setColor(new Color(149,27,27));
+				g2d.setColor(Color.GREEN);
 				g2d.fillRect(50,50,100,50);
 			}
 		};
