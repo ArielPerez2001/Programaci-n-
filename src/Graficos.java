@@ -14,6 +14,8 @@ public class Graficos extends JFrame implements KeyListener{
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
+	public int x= 10;
+	public int y = 10;
 
 	/**
 	 * Launch the application.
@@ -45,27 +47,32 @@ public class Graficos extends JFrame implements KeyListener{
 		
 		JPanel panel = new JPanel() {
 			@Override
-			public void paintComponent(Graphics g)
+			public void paint(Graphics g)
 			{
-				super.paintComponent(g);
+				super.paint(g);
 				Graphics2D g2d= (Graphics2D)g;	
+				
 				g2d.setColor(Color.GREEN);
-				g2d.fillRect(50,50,100,50);
+				g2d.fillRect(x,y,100,50);
+				
+				
 			}
 		};
-		panel.setBackground(new Color(204, 204, 204));
+		
+		panel.setBackground(new Color(204, 255, 255));
 		panel.setBounds(0, 0, 461, 526);
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
 		JPanel panel_1 = new JPanel();
 		panel_1.setBackground(new Color(102, 255, 102));
-		panel_1.setBounds(0, 473, 461, 43);
+		panel_1.setBounds(0, 483, 461, 43);
 		panel.add(panel_1);
 		panel_1.setLayout(null);
 		
 		JButton btnNewButton = new JButton("Reiniciar");
 		btnNewButton.setBounds(185, 10, 85, 21);
+		
 		panel_1.add(btnNewButton);
 		
 		addKeyListener(this);
@@ -75,14 +82,36 @@ public class Graficos extends JFrame implements KeyListener{
 	@Override
 	public void keyTyped(KeyEvent e) {
 		// TODO Auto-generated method stub
-		int keyCode = e.getKeyChar();
-		System.out.println("Tecla presionada: " + keyCode);
+		
 	}
 
 	@Override
 	public void keyPressed(KeyEvent e) {
 		// TODO Auto-generated method stub
+		System.out.println("Tecla:" + e.getKeyCode());
 		
+		switch(e.getKeyCode()) {
+		//W
+		case 87:
+		y-=10;
+			break;
+		//A
+		case 65:
+			x-=10;
+			break;
+		//S
+		case 83:
+			y+=10;
+			break;
+		//D
+		case 68:
+			x+=10;
+			break;
+			
+			default:
+			break;
+		}
+		this.repaint();
 	}
 
 	@Override
