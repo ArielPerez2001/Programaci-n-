@@ -4,6 +4,7 @@ import java.awt.Graphics2D;
 public class Obstaculo {
 	
 	private int x, y, ancho, alto;
+	private Color color;
 	
 	public Obstaculo(int x, int y, int ancho, int alto){
 		
@@ -14,7 +15,7 @@ public class Obstaculo {
 	}
 	
 	public void dibujar(Graphics2D g2d) {
-        g2d.setColor(Color.red);
+        g2d.setColor(Color.DARK_GRAY);
         g2d.fillRect(x, y, ancho, alto);
     }
 	
